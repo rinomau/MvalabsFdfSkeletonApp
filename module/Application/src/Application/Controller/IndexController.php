@@ -25,8 +25,10 @@ class IndexController extends AbstractActionController
     }
     
     public function fdfAction(){
-        echo 'Creo un file fdf in /tmp';
-        $this->I_fdfService->test();
-        return false;
+        $messages[] = 'Creo un file fdf in /tmp';
+        
+        $messages[] = $this->I_fdfService->test();
+        
+        return new ViewModel(array('as_messages' => $messages));
     }
 }
