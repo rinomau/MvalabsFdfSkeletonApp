@@ -58,20 +58,20 @@ class FdfService {
     }
     
     public function getFdf($as_values){
-        $this->createXfdf($this->pdfFilePath, $as_values);
+        $this->createXfdf($this->pdfFilePath.$this->pdfFileName, $as_values);
     }
     
     public function createFdf($as_values){
-        $s_fdf = $this->createXfdf($this->pdfFilePath, $as_values);
-        $this->writeFile($this->fdfFilePath, $s_fdf);
+        $s_fdf = $this->createXfdf($this->pdfFilePath.$this->pdfFileName, $as_values);
+        $this->writeFile($this->fdfFilePath.$this->fdfFileName, $s_fdf);
     }
     
     /**
      * Dato un array associativo genera un file fdf
-     * @param type $file
-     * @param type $as_values
-     * @param type $enc
-     * @return string
+     * @param type $file nome del file contentente i campi modulo a cui si riferisce l'fdf
+     * @param type $as_values array associativo con chiavi e valori da inserire nei campi modulo
+     * @param type $enc encoding del file
+     * @return string contenuto del file fdf
      */
     private function createXfdf( $file, $as_values, $enc='UTF-8' )
     {

@@ -39,6 +39,12 @@ class IndexController extends AbstractActionController
     }
     
     public function fdfAction(){
+        $dati = array(
+            'nome' => 'MvLabs',
+            'country' => 'Italy',
+            'mail' => 'info@mvlabs.it'
+        );
+        $this->I_fdfService->createFdf($dati);
         return new ViewModel();
     }
 }
