@@ -1,77 +1,65 @@
-ZendSkeletonApplication
+Mvlabs Fdf
 =======================
 
 Introduction
 ------------
 This is a simple, skeleton application using the ZF2 MVC layer and module
 systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+looking to get their feet wet with Mvlabs Fdf.
 
 Installation
-------------
+============
+## Composer
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+The suggested installation method is via [composer](http://getcomposer.org/):
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+```sh
+php composer.phar require rinomau/mva-crud:dev-master
+```
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+or
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
+1. Add this project in your composer.json:
 
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
+    ```json
+    "require": {
+        "rinomau/mva-crud": "dev-master"
+    }
+    ```
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
+2. Now tell composer to download MvaCrud by running the command:
 
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+    ```bash
+    $ php composer.phar update
+    ```
 
-You would then invoke `composer` to install dependencies per the previous
-example.
+## Git Submodule
 
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
+ Clone this project into your `./vendor/` directory
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+    ```sh
+    cd vendor
+    git clone https://github.com/rinomau/MvaCrud.git
+    ```
 
-Web Server Setup
-----------------
+Usage
+-----
 
-### PHP CLI Server
+ Usage is very simple:
 
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
+- Create an associative array of data you want to insert in fdf files.
+- The key of that array must match the pdf fields names
+- Configure fdf_filename and pdf_filename with the name you want to give to your fdf files and the name of the pdf file contains modules you want to fill
+- Call the createFdf function
 
-    php -S 0.0.0.0:8080 -t public/ public/index.php
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
-
-**Note: ** The built-in CLI server is *for development only*.
-
-### Apache Setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
+```php
+$dati = array(
+    'nome' => 'MvLabs',
+    'country' => 'Italy',
+    'mail' => 'info@mvlabs.it',
+    'team' => array(
+        'Stefano Maraspin','Stefano Valle','Diego Drigani','David Contavalli','Mauro Rainis'
+    )
+);
+$this->I_fdfService->createFdf($dati);
+```
