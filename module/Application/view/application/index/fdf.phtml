@@ -1,5 +1,10 @@
-<h3>Creato un file fdf in </h3>
+<h3>Creato il file: <?php echo $this->fdf_filename ?></h3>
+<h3>Pdf associato: <?php echo $this->pdf_filename ?></h3>
 
-<p>Contenuto:
-    
+<h3>Contenuto:</h3>
+<p>
+    <pre>
+    <?php print_r($this->contenuto) ?>
+    </pre>
 </p>
+

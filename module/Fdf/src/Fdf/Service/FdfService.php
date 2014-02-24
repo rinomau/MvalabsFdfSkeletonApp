@@ -53,17 +53,25 @@ class FdfService {
         $this->pdfFileName = $s_pdfFileName;
     }
     
+    public function getFdfFilename(){
+        return $this->fdfFilePath.$this->fdfFileName;
+    }
+    
+    public function getPdfFilename(){
+        return $this->pdfFilePath.$this->pdfFileName;
+    }
+    
     public function test(){
-        return 'sono nella funzione test di FdfService. Leggo pdf in '.$this->pdfFilePath.$this->pdfFileName.' scrivo fdf in '.$this->fdfFilePath.$this->fdfFileName;
+        return 'sono nella funzione test di FdfService. Leggo pdf in '.$this->getPdfFilename().' scrivo fdf in '.$this->getPdfFilename();
     }
     
     public function getFdf($as_values){
-        $this->createXfdf($this->pdfFilePath.$this->pdfFileName, $as_values);
+        $this->createXfdf($this->getPdfFilename(), $as_values);
     }
     
     public function createFdf($as_values){
-        $s_fdf = $this->createXfdf($this->pdfFilePath.$this->pdfFileName, $as_values);
-        $this->writeFile($this->fdfFilePath.$this->fdfFileName, $s_fdf);
+        $s_fdf = $this->createXfdf($this->getPdfFilename(), $as_values);
+        $this->writeFile($this->getFdfFilename(), $s_fdf);
     }
     
     /**

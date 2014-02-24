@@ -46,6 +46,11 @@ class IndexController extends AbstractActionController
             )
         );
         $this->I_fdfService->createFdf($dati);
-        return new ViewModel();
+        return new ViewModel(array(
+            'fdf_filename' => $this->I_fdfService->getFdfFilename(),
+            'pdf_filename' => $this->I_fdfService->getPdfFilename(),
+            'contenuto' => $dati,
+            )
+        );
     }
 }
