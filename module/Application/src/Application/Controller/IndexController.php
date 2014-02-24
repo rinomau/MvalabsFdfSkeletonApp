@@ -26,7 +26,7 @@ class IndexController extends AbstractActionController
     
     public function fdfAction(){
         echo 'Creo un file fdf in /tmp';
-        $this->I_fdfService->get();
+        $this->I_fdfService->test();
         return false;
     }
 }
