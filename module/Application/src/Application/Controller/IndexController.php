@@ -14,8 +14,19 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    private $I_fdfService;
+    
+    public function __construct($I_fdfService) {
+        $this->I_fdfService = $I_fdfService;
+    }
     public function indexAction()
     {
         return new ViewModel();
+    }
+    
+    public function fdfAction(){
+        echo 'Creo un file fdf in /tmp';
+        $this->I_fdfService->get();
+        return false;
     }
 }

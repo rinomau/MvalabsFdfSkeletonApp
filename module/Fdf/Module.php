@@ -39,10 +39,9 @@ class Module
     }
     public function getServiceConfig()
     {
-    
         return array(
             'factories' => array(
-                'fdf'    => '\MvlabsFdf\Services\MvlabsFdfServiceFactory'
+                'fdf'    => '\Fdf\Service\FdfServiceFactory'
             ),
         );
     }
