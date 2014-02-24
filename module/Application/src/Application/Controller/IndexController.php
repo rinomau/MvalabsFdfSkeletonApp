@@ -24,11 +24,21 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
     
-    public function fdfAction(){
+    public function fdfTestAction(){
         $messages[] = 'Creo un file fdf in /tmp';
         
         $messages[] = $this->I_fdfService->test();
         
+        $this->I_fdfService->setFdfFilePath('/cippalippa');
+        $messages[] = $this->I_fdfService->test();
+        
+        $this->I_fdfService->setPdfFilePath('/antani');
+        $messages[] = $this->I_fdfService->test();
+        
         return new ViewModel(array('as_messages' => $messages));
+    }
+    
+    public function fdfAction(){
+        return new ViewModel();
     }
 }
