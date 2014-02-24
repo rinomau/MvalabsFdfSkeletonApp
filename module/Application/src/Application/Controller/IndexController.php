@@ -25,8 +25,6 @@ class IndexController extends AbstractActionController
     }
     
     public function fdfTestAction(){
-        $messages[] = 'Creo un file fdf in /tmp';
-        
         $messages[] = $this->I_fdfService->test();
         
         $this->I_fdfService->setFdfFilePath('/cippalippa');
@@ -42,7 +40,10 @@ class IndexController extends AbstractActionController
         $dati = array(
             'nome' => 'MvLabs',
             'country' => 'Italy',
-            'mail' => 'info@mvlabs.it'
+            'mail' => 'info@mvlabs.it',
+            'team' => array(
+                'Stefano Maraspin','Stefano Valle','Diego Drigani','David Contavalli','Mauro Rainis'
+            )
         );
         $this->I_fdfService->createFdf($dati);
         return new ViewModel();
