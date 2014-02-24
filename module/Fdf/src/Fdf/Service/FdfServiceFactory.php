@@ -14,7 +14,12 @@ class FdfServiceFactory implements FactoryInterface {
         
         //@fixme Verificare se sono settati i due parametri e decidere cosa fare se non lo sono
         
-        return new FdfService($as_config['fdf_paths']['fdf_file_path'],$as_config['fdf_paths']['pdf_file_path']);
+        return new FdfService(
+                $as_config['fdf_paths']['fdf_file_path'],
+                $as_config['fdf_paths']['fdf_file_name'],
+                $as_config['fdf_paths']['pdf_file_path'],
+                $as_config['fdf_paths']['pdf_file_name']
+                );
 	}
 
 }
