@@ -45,7 +45,7 @@ class IndexController extends AbstractActionController
                 'Stefano Maraspin','Stefano Valle','Diego Drigani','David Contavalli','Mauro Rainis'
             )
         );
-        $this->I_fdfService->createFdf($dati);
+        $this->I_fdfService->writeFdf($dati);
         return new ViewModel(array(
             'fdf_filename' => $this->I_fdfService->getFdfFilename(),
             'pdf_filename' => $this->I_fdfService->getPdfFilename(),

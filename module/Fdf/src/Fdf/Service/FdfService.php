@@ -28,13 +28,21 @@ class FdfService {
      */
     private $pdfFileName;
     
+    /**
+     * Eseguibile di pdftk
+     * @var type string
+     */
+    private $pdftkBinary;
     
-    public function __construct($s_fdfFilePath,$s_fdfFileName,$s_pdfFilePath,$s_pdfFileName) {
+    
+    public function __construct($s_fdfFilePath,$s_fdfFileName,$s_pdfFilePath,$s_pdfFileName,$s_pdftkBin) {
         $this->fdfFilePath = $s_fdfFilePath;
         $this->fdfFileName = $s_fdfFileName;
         
         $this->pdfFilePath = $s_pdfFilePath;
         $this->pdfFileName = $s_pdfFileName;
+        
+        $this->pdftkBinary = $s_pdftkBin;
     }
     
     public function setFdfFilePath($s_fdfFilePath){
@@ -69,9 +77,13 @@ class FdfService {
         $this->createXfdf($this->getPdfFilename(), $as_values);
     }
     
-    public function createFdf($as_values){
+    public function writeFdf($as_values){
         $s_fdf = $this->createXfdf($this->getPdfFilename(), $as_values);
         $this->writeFile($this->getFdfFilename(), $s_fdf);
+    }
+    
+    public function flatFdfPdf($s_pdfName,$s_fdfName){
+        //@fixme Da fare
     }
     
     /**

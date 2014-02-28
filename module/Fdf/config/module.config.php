@@ -11,5 +11,11 @@ return array(
         
         'pdf_file_path' => '/tmp',
         'pdf_file_name' => '/pdf_test.pdf',
+    ),
+    
+    'pdftk_paths' => array(
+        
+        'bin' => '/usr/bin/pdftk'
+        
     )
 );

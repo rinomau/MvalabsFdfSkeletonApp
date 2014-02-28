@@ -18,7 +18,8 @@ class FdfServiceFactory implements FactoryInterface {
                 $as_config['fdf_paths']['fdf_file_path'],
                 $as_config['fdf_paths']['fdf_file_name'],
                 $as_config['fdf_paths']['pdf_file_path'],
-                $as_config['fdf_paths']['pdf_file_name']
+                $as_config['fdf_paths']['pdf_file_name'],
+                $as_config['pdftk_paths']['bin']
                 );
 	}
 
